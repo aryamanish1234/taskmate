@@ -1,0 +1,30 @@
+{% extends 'protask/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+  <title>Login</title>
+{% endblock title %}
+
+{% block content %}
+   <div class ="container">
+
+    </br>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>  
+            </div>
+      
+        {% endfor %}
+    {% endif %}
+
+   <form method = "POST"  class ="mt-5 col-6">
+   {% csrf_token %}
+   <h1>{{ form|crispy }}
+
+   <button  class="btn btn-primary" type = "submit">Login</button>
+   </div>
+{% endblock content %}

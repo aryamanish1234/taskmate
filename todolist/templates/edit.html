@@ -1,0 +1,22 @@
+{% extends 'protask/base.html' %}
+
+{% block title  %}
+   <title>editTask</title>
+{% endblock title  %}
+
+{% block content %}ss
+   <div class ="container">
+   </br>
+   {% if task_obj.head == request.user %}
+   <form method="POST" class = "row">
+         {% csrf_token %}
+        <label class="col-lg-2"></label>
+        <input type="text" class="form-control col-lg-4 " name="task" placeholder="{{ task_obj.task }}" value="{{ task_obj.task }}">
+         <input type="hidden"  name="done" value="{{ task_obj.done }}">
+         <button type="submit" class="btn btn-primary col-lg-2">Update-Task</button>
+     </form>
+      {% else %}
+      <p>You can not Allow to Edit the Task!!!</p>
+     {% endif %}
+     </div>
+{% endblock content %}
